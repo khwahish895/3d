@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Card Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Card Container */
+        .card-container {
+            perspective: 1000px;
+        }
+
+        /* Card */
+        .card {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #ffffff, #f1f1f1);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 30px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+            cursor: pointer;
+        }
+
+        /* 3D Hover Effect */
+        .card:hover {
+            transform: rotateY(20deg) rotateX(15deg) scale(1.05);
+        }
+
+        /* Card Content */
+        .card h2 {
+            margin-bottom: 10px;
+            color: #333;
+            transform: translateZ(40px);
+        }
+
+        .card p {
+            color: #555;
+            font-size: 15px;
+            transform: translateZ(25px);
+        }
+
+        /* Glow Effect */
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #ff0080, #7928ca);
+            opacity: 0;
+            transition: opacity 0.6s;
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        .card:hover::after {
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="card">
+            <h2>3D Card</h2>
+            <p>Hover to experience the 3D animation effect created using pure HTML and CSS.</p>
+        </div>
+    </div>
+
+</body>
+</html>
